@@ -126,9 +126,7 @@ func (this *LRUCache) popFront() (*LinkNode, bool) {
     }
 
     front := this.head.next
-    this.head.next = front.next
-    front.next.pre = this.head
-    front.pre, front.next = nil, nil
+    this.removeNode(front)
     return front, true
 }
 
