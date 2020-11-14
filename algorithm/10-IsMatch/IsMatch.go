@@ -1,5 +1,6 @@
-package main
+package IsMatch
 
+// https://leetcode-cn.com/problems/lru-cache/
 // 对于s和p，逐一匹配. 当匹配s[i]和p[j]是，在匹配过程中，对于p有三种情况：
 // 1. p[j]为正常字符
 // 2. p[j]为字符'.'

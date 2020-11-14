@@ -1,4 +1,4 @@
-package main
+package ValidMountainArray
 
 import (
 	"testing"

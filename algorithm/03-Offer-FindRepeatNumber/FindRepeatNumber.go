@@ -1,4 +1,4 @@
-package main
+package FindRepeatNumber
 
 // https://leetcode-cn.com/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/
 // 在一个长度为 n 的数组 nums 里的所有数字都在 0～n-1

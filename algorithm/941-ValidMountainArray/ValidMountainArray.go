@@ -1,5 +1,5 @@
 // https://leetcode-cn.com/problems/valid-mountain-array/
-package main
+package ValidMountainArray
 
 func validMountainArray(A []int) bool {
 	if len(A) < 3 {

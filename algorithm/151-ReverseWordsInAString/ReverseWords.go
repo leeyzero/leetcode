@@ -1,5 +1,5 @@
 // https://leetcode-cn.com/problems/reverse-words-in-a-string/
-package main
+package ReverseWords
 
 import (
 	"strings"
