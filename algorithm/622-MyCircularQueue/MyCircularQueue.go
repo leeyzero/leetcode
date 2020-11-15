@@ -26,7 +26,7 @@ func (this *MyCircularQueue) EnQueue(value int) bool {
 		return false
 	}
 
-	pos := (this.getRearIndex() + 1) % len(this.queue)
+	pos := (this.front + this.size) % len(this.queue)
 	this.queue[pos] = value
 	this.size++
 	return true
