@@ -62,9 +62,9 @@ func removeKdigits2(num string, k int) string {
 
     if k > len(stack) {
         stack = stack[:0]
-        k = len(stack)
+    } else {
+        stack = stack[:len(stack)-k]
     }
-    stack = stack[:len(stack)-k]
     ans := strings.TrimLeft(string(stack), "0")
     if ans == "" {
         ans = "0"
