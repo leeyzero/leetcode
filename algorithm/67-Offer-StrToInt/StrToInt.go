@@ -5,6 +5,8 @@ import (
 	"strings"
 )
 
+// https://leetcode-cn.com/problems/ba-zi-fu-chuan-zhuan-huan-cheng-zheng-shu-lcof/
+// 解题思路：关键时对细节的处理，如正负号、溢出、非法字符
 func strToInt(str string) int {
     str = strings.Trim(str, " ")
     if str == "" {
