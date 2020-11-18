@@ -13,7 +13,7 @@ func TestReversePrint(t *testing.T) {
 	for _, test := range tests {
 		in := (test[0]).([]int)
 		want := (test[1]).([]int)
-		if got := reversePrint(MakeLinkList(in)); !reflect.DeepEqual(got, want) {
+		if got := reversePrint(makeLinkList(in)); !reflect.DeepEqual(got, want) {
 			t.Errorf("reversePrint(%v).got:%v want:%v", in, got, want)
 		}
 	}

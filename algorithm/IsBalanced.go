@@ -16,7 +16,7 @@ func isBalancedAux(node *TreeNode, depth *int) bool {
 	if isBalancedAux(node.Left, &left) && isBalancedAux(node.Right, &right) {
 		diff := left - right
 		if diff <= 1 && diff >= -1 {
-			*depth = 1 + Max(left, right)
+			*depth = 1 + max(left, right)
 			return true
 		}
 	}

@@ -20,12 +20,12 @@ func maxPathSumAux(node *TreeNode, maxSum *int) int {
 	}
 
 	// 分别计算左右节点的最大贡献值，只有在最大节点贡献值大于0时才选取
-	left := Max(0, maxPathSumAux(node.Left, maxSum))
-	right := Max(0, maxPathSumAux(node.Right, maxSum))
+	left := max(0, maxPathSumAux(node.Left, maxSum))
+	right := max(0, maxPathSumAux(node.Right, maxSum))
 
 	// 节点的最大路径和取决于该节点的值加左右节点的最大贡献值
-	*maxSum = Max(*maxSum, left+right+node.Val)
+	*maxSum = max(*maxSum, left+right+node.Val)
 
 	// 返回该节点的最大贡献值
-	return Max(left, right) + node.Val
+	return max(left, right) + node.Val
 }
