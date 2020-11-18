@@ -1,4 +1,4 @@
-package base
+package algorithm
 
 func MakeListNode(vals []int) *ListNode {
 	sentinel := &ListNode{}

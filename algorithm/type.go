@@ -1,4 +1,4 @@
-package base
+package algorithm
 
 // 单向链表结点定义
 type ListNode struct {
