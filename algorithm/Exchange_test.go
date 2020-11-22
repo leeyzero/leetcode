@@ -12,7 +12,7 @@ func TestExchange(t *testing.T) {
 	for _, test := range tests {
 		in := (test[0]).([]int)
 		want := (test[1]).([]int)
-		if got := exchange(in); !reflect.DeepEqual(got, want) {
+		if got := exchange2(in); !reflect.DeepEqual(got, want) {
 			t.Errorf("exchange(%v).got:%v want:%v", in, got, want)
 		}
 	}
