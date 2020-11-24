@@ -5,7 +5,7 @@ import (
 )
 
 func TestMyCircularQueue(t *testing.T) {
-	circularQueue := Constructor(3) // 设置长度为 3
+	circularQueue := NewMyCircularQueue(3) // 设置长度为 3
 	if !circularQueue.EnQueue(1) {
 		t.Errorf("enQueue(1) fail")
 	}
