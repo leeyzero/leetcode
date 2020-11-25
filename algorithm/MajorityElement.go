@@ -1,5 +1,9 @@
 package algorithm
 
+import (
+    "sort"
+)
+
 // https://leetcode-cn.com/problems/shu-zu-zhong-chu-xian-ci-shu-chao-guo-yi-ban-de-shu-zi-lcof/
 // 解题思路：
 // 方法一：哈希表统计法，遍历数组，用hash表统计各数字的次数，即可找出众数。时间复杂度O(N), 空间复杂度O(N)
@@ -37,7 +41,7 @@ func majorityElementByHash(nums []int) int {
 	hash := map[int]int{}
 	for _, num := range nums {
 		if cnt, ok := hash[num]; ok {
-			hash[num] += 1
+			hash[num] = cnt + 1 
 		} else {
 			hash[num] = 1
 		}
