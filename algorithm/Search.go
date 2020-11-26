@@ -3,7 +3,7 @@ package algorithm
 // https://leetcode-cn.com/problems/zai-pai-xu-shu-zu-zhong-cha-zhao-shu-zi-lcof/
 // 解题思路：排序数组中的搜索问题，首先想到二分法
 // 本题要求统计数字target中的次数，可以转化为使用二分法搜索target的左右边界left,right
-// 则target的数量为right-left-1
+// 则target的数量为right-left+1
 func search(nums []int, target int) int {
 	rbound := rightBound(nums, target)
 	if rbound == -1 {
@@ -36,7 +36,7 @@ func leftBound(arr []int, target int) int {
 	for left <= right {
 		mid := left + (right-left) >> 1
 		if target <= arr[mid] {
-			right = mid-1
+			right = mid - 1
 		} else {
 			left = mid + 1
 		}
