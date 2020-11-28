@@ -22,10 +22,10 @@ func maxSlidingWindow(nums []int, k int) []int {
 		for deque.Len() > 0 && nums[(deque.Back().Value).(int)] < nums[right] {
 			deque.Remove(deque.Back())
 		}
-		deque.PushBack(right)
 		if deque.Len() > 0 && (deque.Front().Value).(int) < left {
 			deque.Remove(deque.Front())
 		}
+		deque.PushBack(right)
 
 		size := right - left + 1
 		if size < k {
