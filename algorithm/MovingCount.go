@@ -20,15 +20,11 @@ func movingCount(m int, n int, k int) int {
 }
 
 func movingCountCore(i int, j int, k int, visited [][]bool, ans *int) {
-	if i < 0 || i >= len(visited) || j < 0 || j >= len(visited[i]) || visited[i][j] {
+	if i < 0 || i >= len(visited) || j < 0 || j >= len(visited[i]) || visited[i][j] || !isCoordValid(i, j, k) {
 		return
 	}
 	
 	visited[i][j] = true
-	if !isCoordValid(i, j, k) {
-		return
-	}
-
 	*ans++
 	// 上
 	movingCountCore(i-1, j, k, visited, ans)
