@@ -7,13 +7,13 @@ func searchRange(nums []int, target int) []int {
 		return []int{-1, -1}
 	}
 
-	lBound := leftBound(nums, target)
-	rBound := rightBound(nums, target)
+	lBound := binarySearchLeftBound(nums, target)
+	rBound := binarySearchRightBound(nums, target)
 	return []int{lBound, rBound}
 }
 
 // target的左边界
-func leftBound(nums []int, target int) int {
+func binarySearchLeftBound(nums []int, target int) int {
 	left, right := 0, len(nums)-1
 	for left <= right {
 		mid := left + (right-left)>>1
@@ -30,7 +30,7 @@ func leftBound(nums []int, target int) int {
 }
 
 // target的右边界
-func rightBound(nums []int, target int) int {
+func binarySearchRightBound(nums []int, target int) int {
 	left, right := 0, len(nums)-1
 	for left <= right {
 		mid := left + (right-left)>>1
