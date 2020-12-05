@@ -10,6 +10,14 @@ func makeLinkList(vals []int) *ListNode {
 	return sentinel.Next
 }
 
+func forward(head *ListNode, length int) *ListNode {
+	curr := head
+	for i := 0; curr != nil && i < length; i++ {
+		curr = curr.Next
+	}
+	return curr
+}
+
 // 按前序遍历反序列化
 // [1, 2, 4, -1, -1, 5, -1, -1, 3, -1, -1]
 //      1

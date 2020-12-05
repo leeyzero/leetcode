@@ -33,10 +33,3 @@ func getLinkListLength(head *ListNode) int {
 	return length
 }
 
-func forward(head *ListNode, length int) *ListNode {
-	curr := head
-	for i := 0; curr != nil && i < length; i++ {
-		curr = curr.Next
-	}
-	return curr
-}
