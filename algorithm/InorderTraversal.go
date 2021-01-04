@@ -5,6 +5,14 @@ func inorderTraversal(root *TreeNode) []int {
 	return inorderTraversalIterative(root)
 }
 
+// https://www.geeksforgeeks.org/inorder-tree-traversal-without-recursion/
+// 1. create an empty stack
+// 2. iniialize current node as root
+// 3. push the current to S and set current = current.Left until current is nil
+// 4. do following until current is nil and stack is not empty
+//   a). pop the top item from the stack
+//   b). print the popped item, set current = popped.Right
+//   c). go to step 3
 func inorderTraversalIterative(root *TreeNode) []int {
 	if root == nil {
 		return []int{}
@@ -14,15 +22,21 @@ func inorderTraversalIterative(root *TreeNode) []int {
 	stack := []*TreeNode{}
 	curr := root
 	for curr != nil || len(stack) > 0 {
-		if curr != nil {
+		// reach the left most node of the curr node
+		for curr != nil {
 			stack = append(stack, curr)
 			curr = curr.Left
-		} else {
-			top := stack[len(stack)-1]
-			stack = stack[:len(stack)-1]
-			ans = append(ans, top.Val)
-			curr = top.Right
 		}
+
+		// curr node must be nil at the this point
+		curr = stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+
+		// visit node
+		ans = append(ans, curr.Val)
+
+		// we have visited the node and it's left subtree. Now it's right subtree's turn
+		curr = curr.Right
 	}
 	return ans
 }
