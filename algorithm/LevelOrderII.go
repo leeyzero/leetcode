@@ -9,11 +9,11 @@ func levelOrderII(root *TreeNode) [][]int {
 
 	ans := [][]int{}
 	queue := []*TreeNode{root}
-	for len(queue) > 0 {
+	for i := 0; len(queue) > 0; i++ {
 		level := []*TreeNode{}
-		curr := []int{}
+		ans = append(ans, []int{})
 		for _, node := range queue {
-			curr = append(curr, node.Val)
+			ans[i] = append(ans[i], node.Val)
 			if node.Left != nil {
 				level = append(level, node.Left)
 			}
@@ -21,7 +21,6 @@ func levelOrderII(root *TreeNode) [][]int {
 				level = append(level, node.Right)
 			}
 		}
-		ans = append(ans, curr)
 		queue = level
 	}
 	return ans
