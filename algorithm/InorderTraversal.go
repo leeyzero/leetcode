@@ -22,21 +22,15 @@ func inorderTraversalIterative(root *TreeNode) []int {
 	stack := []*TreeNode{}
 	curr := root
 	for curr != nil || len(stack) > 0 {
-		// reach the left most node of the curr node
-		for curr != nil {
+		if curr != nil {
 			stack = append(stack, curr)
 			curr = curr.Left
+		} else {
+			curr = stack[len(stack)-1]
+			stack = stack[:len(stack)-1]
+			ans = append(ans, curr.Val)
+			curr = curr.Right
 		}
-
-		// curr node must be nil at the this point
-		curr = stack[len(stack)-1]
-		stack = stack[:len(stack)-1]
-
-		// visit node
-		ans = append(ans, curr.Val)
-
-		// we have visited the node and it's left subtree. Now it's right subtree's turn
-		curr = curr.Right
 	}
 	return ans
 }
