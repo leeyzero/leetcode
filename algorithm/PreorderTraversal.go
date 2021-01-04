@@ -5,25 +5,30 @@ func preorderTraversal(root *TreeNode) []int {
 	return preorderTraversalIterative(root)
 }
 
-// 迭代
+// https://www.geeksforgeeks.org/iterative-preorder-traversal/
+// 1. create a stack, and push root node to stack
+// 2. do following while stack is empty
+//   a) pop an item from stack and visit it
+//   b) push right child of popped item to stack
+//   c) push left child of popped item to stack
+// Note: Right child is pushed before left child to make sure that left subtree is processed first.
 func preorderTraversalIterative(node *TreeNode) []int {
 	ans := []int{}
 	if node == nil {
 		return ans
 	}
 
-	stack := []*TreeNode{}
-	curr := node
-	for curr != nil || len(stack) > 0 {
-		if curr != nil {
-			ans = append(ans, curr.Val)
-			stack = append(stack, curr)
-			curr = curr.Left
-		} else {
-			// 左子树为空
-			top := stack[len(stack)-1]
-			stack = stack[:len(stack)-1]
-			curr = top.Right
+	stack := []*TreeNode{node}
+	for len(stack) > 0 {
+		curr := stack[len(stack)-1]
+		stack = stack[:len(stack)-1]
+		ans = append(ans, curr.Val)
+
+		if curr.Right != nil {
+			stack = append(stack, curr.Right)
+		}
+		if curr.Left != nil {
+			stack = append(stack, curr.Left)
 		}
 	} 
 	return ans
