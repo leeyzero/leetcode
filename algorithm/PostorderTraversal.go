@@ -8,11 +8,11 @@ func postorderTraversal(root *TreeNode) []int {
 // https://www.geeksforgeeks.org/iterative-postorder-traversal-using-stack/
 // https://en.wikipedia.org/wiki/Tree_traversal
 func postorderTraversalIterative(root *TreeNode) []int {
+	ans := []int{}
 	if root == nil {
-		return []int{}
+		return ans
 	}
 
-	ans := []int{}
 	stack := []*TreeNode{}
 	curr, lastVisitNode := root, (*TreeNode)(nil)
 	for curr != nil || len(stack) > 0 {
