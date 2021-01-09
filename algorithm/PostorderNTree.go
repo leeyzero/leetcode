@@ -13,11 +13,11 @@ func postorder(root *Node) []int {
 		return ans
 	}
 
-	stack := []SNode{}
+	stack := []*SNode{}
 	curr, lastVisitNode := root, (*Node)(nil)
 	for curr != nil || len(stack) > 0 {
 		for curr != nil {
-			stack = append(stack, SNode{curr, 0})
+			stack = append(stack, &SNode{curr, 0})
 			if len(curr.Children) > 0 {
 				curr = curr.Children[0]
 			} else {
