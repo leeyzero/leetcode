@@ -7,7 +7,7 @@ type SNode struct {
 	i int
 }
 
-func postorder(root *Node) []int {
+func postorderNTree(root *Node) []int {
 	ans := []int{}
 	if root == nil {
 		return ans
