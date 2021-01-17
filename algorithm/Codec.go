@@ -35,6 +35,10 @@ func (this *Codec) deserialize(data string) *TreeNode {
 	}
 
 	tokens := strings.Split(data[1:len(data)-1], ",")
+	if len(tokens) <= 0 {
+		return nil
+	}
+
 	rootVal, _ := strconv.ParseInt(tokens[0], 10, 32)
 	root := &TreeNode{int(rootVal), nil, nil}
 	q := []*TreeNode{root}
