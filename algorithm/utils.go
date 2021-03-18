@@ -77,7 +77,7 @@ func preorderTreeNode(root *TreeNode) []int {
 
 func preorderTreeNodeAux(node *TreeNode, ans *[]int) {
 	if node == nil {
-		return 
+		return
 	}
 
 	*ans = append(*ans, node.Val)
