@@ -1,7 +1,14 @@
-package algorithm
+package twopointer
+
+import (
+	"github.com/leeyzero/leetcode/algorithm/base"
+)
 
 // https://leetcode-cn.com/problems/linked-list-cycle-ii/
-func detectCycle(head *ListNode) *ListNode {
+// 题目：142. 环形链表 II
+// 难度：中等
+// 思路：快慢指针
+func detectCycle(head *base.ListNode) *base.ListNode {
 	slow, fast := head, head
 	// 1.判断是否有环
 	for {

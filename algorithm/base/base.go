@@ -20,6 +20,14 @@ func LinkListToSlice(head *ListNode) []int {
 	return result
 }
 
+func Forward(head *ListNode, length int) *ListNode {
+	curr := head
+	for i := 0; curr != nil && i < length; i++ {
+		curr = curr.Next
+	}
+	return curr
+}
+
 func Max(x, y int) int {
 	if x > y {
 		return x
