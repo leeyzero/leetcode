@@ -12,14 +12,13 @@ func cuttingRopeII(n int) int {
 	}
 
 	var rem, x, p int64 = 1, 3, 1000000007
-	for a := n / 3 - 1; a > 0; a /= 2 {
-		if a % 2 == 1 {
+	for a := n/3 - 1; a > 0; a /= 2 {
+		if a%2 == 1 {
 			rem = (rem * x) % p
 		}
 		x = (x * x) % p
 	}
 
 	ans := []int{int(rem * 3 % p), int(rem * 4 % p), int(rem * 6 % p)}
-	return ans[n % 3]
+	return ans[n%3]
 }
-
