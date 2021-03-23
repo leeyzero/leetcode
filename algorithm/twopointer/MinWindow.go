@@ -10,9 +10,9 @@ func minWindow(s string, t string) string {
 		hash[t[i]]++
 	}
 
-	left, count := 0, 0
+	count := 0
 	minLeft, minRight := 0, len(s)+1
-	for right := 0; right < len(s); right++ {
+	for left, right := 0, 0; right < len(s); right++ {
 		c := s[right]
 		if _, ok := hash[c]; !ok {
 			continue
