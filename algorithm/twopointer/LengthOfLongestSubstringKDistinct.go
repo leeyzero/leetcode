@@ -15,7 +15,8 @@ func lengthOfLongestSubstringKDistinct(s string, k int) int {
 		hash[s[right]]++
 		if len(hash) == k {
 			ans = base.Max(ans, right-left+1)
-		} else if len(hash) > k {
+		}
+		for len(hash) > k {
 			hash[s[left]]--
 			if hash[s[left]] <= 0 {
 				delete(hash, s[left])
