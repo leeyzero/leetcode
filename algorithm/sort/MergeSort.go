@@ -1,6 +1,9 @@
 package sort
 
-// 归并排序：divide conquer commbine
+// 归并排序
+// Divide: 将原问题分解成一系列子问题
+// Conquer: 递归地解各子问题。若子问题足够小，则直接求解
+// Commbine: 将子问题的结果合并成原问题的解
 func MergeSort(arr []int) {
 	aux := make([]int, len(arr))
 	mergeSort(arr, 0, len(arr)-1, aux)
