@@ -1,8 +1,8 @@
-package algorithm
+package binarysearch
 
 // https://leetcode-cn.com/problems/xuan-zhuan-shu-zu-de-zui-xiao-shu-zi-lcof/
-// 该题在leetcode中为简单，但要考虑的边界情况比较多，其实时比较难的
-// 解题思路：二分法
+// 题目：剑指 Offer 11. 旋转数组的最小数字。该题在leetcode中为简单，但要考虑的边界情况比较多，其实时比较难的
+// 思路：二分法
 // 注意：边界条件处理
 func minArray(numbers []int) int {
 	if len(numbers) <= 0 {
@@ -11,7 +11,7 @@ func minArray(numbers []int) int {
 
 	low, high := 0, len(numbers)-1
 	for low < high {
-		pivot := low + (high - low) >> 1
+		pivot := low + (high-low)>>1
 		if numbers[pivot] < numbers[high] {
 			high = pivot
 		} else if numbers[pivot] > numbers[high] {
@@ -22,4 +22,3 @@ func minArray(numbers []int) int {
 	}
 	return numbers[low]
 }
-
