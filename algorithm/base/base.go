@@ -1,9 +1,5 @@
 package base
 
-import (
-	"encoding/json"
-)
-
 func MakeLinkList(vals []int) *ListNode {
 	sentinel := &ListNode{}
 	curr := sentinel
@@ -74,11 +70,7 @@ func LevelOrderTraverseTreeNode(root *TreeNode) []int {
 //    3
 // 9    20
 //    15  7
-func UnmarshalTreeNode(content string) (*TreeNode, error) {
-	var numbers []int
-	if err := json.Unmarshal([]byte(content), &numbers); err != nil {
-		return nil, err
-	}
+func UnmarshalTreeNode(numbers []int) (*TreeNode, error) {
 	if len(numbers) <= 0 || numbers[0] == -1 {
 		return nil, nil
 	}
