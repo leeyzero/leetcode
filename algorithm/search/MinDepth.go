@@ -13,6 +13,7 @@ import (
 // 最小深度是从根节点到最近叶子节点的最短路径上的节点数量。
 // 说明：叶子节点是指没有子节点的节点。
 // 思路：DFS或BFS
+// 方法一：DFS
 func minDepth(root *base.TreeNode) int {
 	if root == nil {
 		return 0
@@ -36,4 +37,31 @@ func minDepthCore(node *base.TreeNode, curr int, ans *int) {
 
 	minDepthCore(node.Left, curr, ans)
 	minDepthCore(node.Right, curr, ans)
+}
+
+// 方法二：BFS
+func minDepth2(root *base.TreeNode) int {
+	if root == nil {
+		return 0
+	}
+
+	depth := 1
+	q := []*base.TreeNode{root}
+	for len(q) > 0 {
+		var nextLevel []*base.TreeNode
+		for i := 0; i < len(q); i++ {
+			if q[i].Left == nil && q[i].Right == nil {
+				return depth
+			}
+			if q[i].Left != nil {
+				nextLevel = append(nextLevel, q[i].Left)
+			}
+			if q[i].Right != nil {
+				nextLevel = append(nextLevel, q[i].Right)
+			}
+		}
+		q = nextLevel
+		depth++
+	}
+	return depth
 }
