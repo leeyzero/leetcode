@@ -1,27 +1,27 @@
-package algorithm
+package queue
 
 // https://leetcode-cn.com/problems/yong-liang-ge-zhan-shi-xian-dui-lie-lcof/
-// 解题思路：用两个栈stack1, stack2
+// 题目：剑指 Offer 09. 用两个栈实现队列
+// 难度：简单
+// 思路：用两个栈stack1, stack2
 // AppendTail的时候加入到stack1
 // DeleteHead时，先将stack1中的所有元素逐一弹出后push到stack2，此时statck2的顺序即为队列的加入顺序
 // 只需从stack2中pop栈顶元素
 type CQueue struct {
 	stack1 []int
 	stack2 []int
-	size int
+	size   int
 }
-
 
 func NewCQueue() CQueue {
 	return CQueue{
 		stack1: []int{},
 		stack2: []int{},
-		size: 0,
+		size:   0,
 	}
 }
 
-
-func (this *CQueue) AppendTail(value int)  {
+func (this *CQueue) AppendTail(value int) {
 	this.stack1 = append(this.stack1, value)
 	this.size++
 }
@@ -49,7 +49,6 @@ func (this *CQueue) DeleteHead() int {
 func (this *CQueue) isEmpty() bool {
 	return this.size <= 0
 }
-
 
 /**
  * Your CQueue object will be instantiated and called as such:
