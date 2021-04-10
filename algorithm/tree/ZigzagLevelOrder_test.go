@@ -14,7 +14,7 @@ func TestZigzagLevelOrder(t *testing.T) {
 		{20, 9},
 		{15, 7},
 	}
-	root := base.MarshalTreeNodeByPreorder(in)
+	root := base.UnmarshalTreeNodeByPreorder(in)
 	if got := zigzagLevelOrder(root); !reflect.DeepEqual(got, want) {
 		t.Errorf("zigzagLevelOrder(%v).got:%v want:%v", in, got, want)
 	}
