@@ -100,13 +100,13 @@ func UnmarshalTreeNodeByLevelorder(numbers []int) (*TreeNode, error) {
 //      1
 //   2    3
 // 4  5
-func MarshalTreeNodeByPreorder(vals []int) *TreeNode {
+func UnmarshalTreeNodeByPreorder(vals []int) *TreeNode {
 	root := (*TreeNode)(nil)
-	marshalTreeNodeByPreorderCore(&root, &vals)
+	unmarshalTreeNodeByPreorderCore(&root, &vals)
 	return root
 }
 
-func marshalTreeNodeByPreorderCore(node **TreeNode, vals *[]int) {
+func unmarshalTreeNodeByPreorderCore(node **TreeNode, vals *[]int) {
 	if len(*vals) <= 0 {
 		return
 	}
@@ -118,6 +118,6 @@ func marshalTreeNodeByPreorderCore(node **TreeNode, vals *[]int) {
 	}
 
 	*node = &TreeNode{val, nil, nil}
-	marshalTreeNodeByPreorderCore(&(*node).Left, vals)
-	marshalTreeNodeByPreorderCore(&(*node).Right, vals)
+	unmarshalTreeNodeByPreorderCore(&(*node).Left, vals)
+	unmarshalTreeNodeByPreorderCore(&(*node).Right, vals)
 }
