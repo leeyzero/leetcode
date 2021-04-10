@@ -49,3 +49,32 @@ func detectCycle(head *base.ListNode) *base.ListNode {
 	}
 	return slow
 }
+
+// 方法二
+// 先用快慢指针找到相遇点，此时如果慢指针走了k步，那么快指针就走了2k步，k为环的整数倍（相遇时快指针已经走了n圈）
+// 设环入口到相遇点为m，则头到相遇点为k-m，而相遇点再走k-m步也到达入口点
+// 此时，只需要将快、慢任一指针指向头，然后同时走k-m步就能在入口点相遇
+func detectCycle2(head *base.ListNode) *base.ListNode {
+	// 1.判断是否有环
+	slow, fast := head, head
+	for {
+		if fast == nil || fast.Next == nil {
+			// 无环
+			return nil
+		}
+
+		slow = slow.Next
+		fast = fast.Next.Next
+		if slow == fast {
+			break
+		}
+	}
+
+	// 将快指针指向头，然后快慢指针同时走k-m步走到相遇点即为入口点
+	fast = head
+	for fast != slow {
+		slow = slow.Next
+		fast = fast.Next
+	}
+	return fast
+}
