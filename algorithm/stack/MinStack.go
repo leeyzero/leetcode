@@ -1,7 +1,9 @@
-package algorithm
+package stack
 
 // https://leetcode-cn.com/problems/bao-han-minhan-shu-de-zhan-lcof/
-// 解题思路：用一个栈A保存数据，正常实现Push, Pop, Top接口；用一个辅助
+// 描述：剑指 Offer 30. 包含min函数的栈
+// 难度：简单
+// 思路：用一个栈A保存数据，正常实现Push, Pop, Top接口；用一个辅助
 // 栈B保存A中非严格降序的元素
 // 注意栈中含有相同最小值的情况
 type MinStack struct {
