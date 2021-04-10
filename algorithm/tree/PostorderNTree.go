@@ -1,10 +1,12 @@
-package algorithm
+package tree
 
 // https://leetcode-cn.com/problems/n-ary-tree-postorder-traversal/
+// 题目：590. N 叉树的后序遍历
+// 难度：简单
 // 解题思路：递归算法比较简单，这里使用迭代实现
 type SNode struct {
 	node *Node
-	i int
+	i    int
 }
 
 func postorderNTree(root *Node) []int {
@@ -37,5 +39,5 @@ func postorderNTree(root *Node) []int {
 			curr = top.node.Children[top.i]
 		}
 	}
-    return ans
+	return ans
 }

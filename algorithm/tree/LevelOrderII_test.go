@@ -1,13 +1,18 @@
-package algorithm
+package tree
 
 import (
 	"reflect"
 	"testing"
+
+	"github.com/leeyzero/leetcode/algorithm/base"
 )
 
 func TestLevelOrderII(t *testing.T) {
-	in := []int{3, 9, -1, -1, 20, 15, -1, -1, 7, -1, -1}
-	root := makeTreeNode(in)
+	in := []int{3, 9, 20, -1, -1, 15, 7}
+	root, err := base.UnmarshalTreeNode(in)
+	if err != nil {
+		t.Fatalf("UnmarshalTreeNode(%v) fail.err:%v", in, err)
+	}
 	want := [][]int{
 		{3},
 		{9, 20},

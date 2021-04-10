@@ -1,7 +1,9 @@
-package algorithm
+package tree
+
+import "github.com/leeyzero/leetcode/algorithm/base"
 
 // 二叉树的前序遍历
-func preorderTraversal(root *TreeNode) []int {
+func preorderTraversal(root *base.TreeNode) []int {
 	return preorderTraversalIterative(root)
 }
 
@@ -12,13 +14,13 @@ func preorderTraversal(root *TreeNode) []int {
 //   b) push right child of popped item to stack
 //   c) push left child of popped item to stack
 // Note: Right child is pushed before left child to make sure that left subtree is processed first.
-func preorderTraversalIterative(node *TreeNode) []int {
+func preorderTraversalIterative(node *base.TreeNode) []int {
 	ans := []int{}
 	if node == nil {
 		return ans
 	}
 
-	stack := []*TreeNode{node}
+	stack := []*base.TreeNode{node}
 	for len(stack) > 0 {
 		curr := stack[len(stack)-1]
 		stack = stack[:len(stack)-1]
@@ -30,18 +32,18 @@ func preorderTraversalIterative(node *TreeNode) []int {
 		if curr.Left != nil {
 			stack = append(stack, curr.Left)
 		}
-	} 
+	}
 	return ans
 }
 
 // 递归
-func preorderTraversalRecursive(root *TreeNode) []int {
+func preorderTraversalRecursive(root *base.TreeNode) []int {
 	ans := []int{}
 	preorderTraversalRecursiveCore(root, &ans)
 	return ans
 }
 
-func preorderTraversalRecursiveCore(node *TreeNode, ans *[]int) {
+func preorderTraversalRecursiveCore(node *base.TreeNode, ans *[]int) {
 	if node == nil {
 		return
 	}

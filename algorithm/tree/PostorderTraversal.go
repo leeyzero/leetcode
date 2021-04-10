@@ -1,20 +1,22 @@
-package algorithm
+package tree
+
+import "github.com/leeyzero/leetcode/algorithm/base"
 
 // 二叉树的后续遍历
-func postorderTraversal(root *TreeNode) []int {
+func postorderTraversal(root *base.TreeNode) []int {
 	return postorderTraversalIterative(root)
 }
 
 // https://www.geeksforgeeks.org/iterative-postorder-traversal-using-stack/
 // https://en.wikipedia.org/wiki/Tree_traversal
-func postorderTraversalIterative(root *TreeNode) []int {
+func postorderTraversalIterative(root *base.TreeNode) []int {
 	ans := []int{}
 	if root == nil {
 		return ans
 	}
 
-	stack := []*TreeNode{}
-	curr, lastVisitNode := root, (*TreeNode)(nil)
+	stack := []*base.TreeNode{}
+	curr, lastVisitNode := root, (*base.TreeNode)(nil)
 	for curr != nil || len(stack) > 0 {
 		if curr != nil {
 			stack = append(stack, curr)
@@ -34,13 +36,13 @@ func postorderTraversalIterative(root *TreeNode) []int {
 	return ans
 }
 
-func postorderTraversalRecursive(root *TreeNode) []int {
+func postorderTraversalRecursive(root *base.TreeNode) []int {
 	ans := []int{}
 	postorderTraversalRecursiveCore(root, &ans)
 	return ans
 }
 
-func postorderTraversalRecursiveCore(node *TreeNode, ans *[]int) {
+func postorderTraversalRecursiveCore(node *base.TreeNode, ans *[]int) {
 	if node == nil {
 		return
 	}

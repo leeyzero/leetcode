@@ -1,9 +1,9 @@
-package algorithm
+package tree
 
 import (
 	"testing"
 )
 
 func TestPostorderNTree(t *testing.T) {
-	t.Skipf("implement test case")
+	t.Skipf("TODO")
 }
