@@ -6,10 +6,10 @@ import (
 
 func TestNumWays(t *testing.T) {
 	tests := [][]int{
-		[]int{0, 1},
-		[]int{1, 1},
-		[]int{2, 2},
-		[]int{7, 21},
+		{0, 1},
+		{1, 1},
+		{2, 2},
+		{7, 21},
 	}
 	for _, test := range tests {
 		if r := numWays(test[0]); r != test[1] {

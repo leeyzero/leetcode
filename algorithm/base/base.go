@@ -70,7 +70,7 @@ func LevelOrderTraverseTreeNode(root *TreeNode) []int {
 //    3
 // 9    20
 //    15  7
-func UnmarshalTreeNode(numbers []int) (*TreeNode, error) {
+func UnmarshalTreeNodeByLevelorder(numbers []int) (*TreeNode, error) {
 	if len(numbers) <= 0 || numbers[0] == -1 {
 		return nil, nil
 	}
@@ -93,4 +93,31 @@ func UnmarshalTreeNode(numbers []int) (*TreeNode, error) {
 		i += len(children)
 	}
 	return root, nil
+}
+
+// 按前序遍历反序列化
+// [1, 2, 4, -1, -1, 5, -1, -1, 3, -1, -1]
+//      1
+//   2    3
+// 4  5
+func MarshalTreeNodeByPreorder(vals []int) *TreeNode {
+	root := (*TreeNode)(nil)
+	marshalTreeNodeByPreorderCore(&root, &vals)
+	return root
+}
+
+func marshalTreeNodeByPreorderCore(node **TreeNode, vals *[]int) {
+	if len(*vals) <= 0 {
+		return
+	}
+
+	val := (*vals)[0]
+	*vals = (*vals)[1:]
+	if val == -1 {
+		return
+	}
+
+	*node = &TreeNode{val, nil, nil}
+	marshalTreeNodeByPreorderCore(&(*node).Left, vals)
+	marshalTreeNodeByPreorderCore(&(*node).Right, vals)
 }

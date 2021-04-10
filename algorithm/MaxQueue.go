@@ -3,13 +3,13 @@ package algorithm
 // https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof/
 // 解题思路：单调队列
 type MaxQueue struct {
-	que []int
+	que    []int
 	maxQue []int
 }
 
 func NewMaxQueue() *MaxQueue {
 	return &MaxQueue{
-		que: []int{},
+		que:    []int{},
 		maxQue: []int{},
 	}
 }
@@ -21,7 +21,7 @@ func (this *MaxQueue) MaxValue() int {
 	return this.maxQue[0]
 }
 
-func (this *MaxQueue) PushBack(value int)  {
+func (this *MaxQueue) PushBack(value int) {
 	this.que = append(this.que, value)
 	for len(this.maxQue) > 0 && this.maxQue[len(this.maxQue)-1] < value {
 		this.maxQue = this.maxQue[:len(this.maxQue)-1]

@@ -1,8 +1,5 @@
 package algorithm
 
-import (
-	"fmt"
-)
 // https://leetcode-cn.com/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/
 // 解题思路：选取数组右上角的数字，如果该数字等于要查找的数字，则查找结束；
 // 如果该数字大于要查找的数字，则剔除这个数字所在列；
@@ -12,9 +9,9 @@ func findNumberIn2DArray(matrix [][]int, target int) bool {
 		return false
 	}
 
-	x, y := 0, len(matrix[0]) - 1
+	x, y := 0, len(matrix[0])-1
 	for x < len(matrix) && y >= 0 {
-		fmt.Println(x, y)
+		// fmt.Println(x, y)
 		if matrix[x][y] == target {
 			return true
 		} else if matrix[x][y] > target {
@@ -37,7 +34,7 @@ func findNumberIn2DArray2(matrix [][]int, target int) bool {
 	return findNumberIn2DArrayCore(matrix, x0, y0, x1, y1, target)
 }
 
-func findNumberIn2DArrayCore(matrix [][]int, x0, y0 int, x1, y1 int, target int) bool { 
+func findNumberIn2DArrayCore(matrix [][]int, x0, y0 int, x1, y1 int, target int) bool {
 	for x0 <= x1 && y0 <= y1 {
 		y1 = findNubmerIn2DArrayRow(matrix, x0, y0, y1, target)
 		if matrix[x0][y1] == target {
@@ -48,7 +45,7 @@ func findNumberIn2DArrayCore(matrix [][]int, x0, y0 int, x1, y1 int, target int)
 		if matrix[x1][y0] == target {
 			return true
 		}
-		x0, y0 = x0 + 1, y0 + 1
+		x0, y0 = x0+1, y0+1
 	}
 	return false
 }
@@ -57,7 +54,7 @@ func findNumberIn2DArrayCore(matrix [][]int, x0, y0 int, x1, y1 int, target int)
 func findNubmerIn2DArrayRow(matrix [][]int, x0 int, y0 int, y1 int, target int) int {
 	left, right := y0, y1
 	for left <= right {
-		mid := left + (right - left) / 2
+		mid := left + (right-left)/2
 		if matrix[x0][mid] == target {
 			right = mid
 			break
@@ -77,9 +74,9 @@ func findNubmerIn2DArrayRow(matrix [][]int, x0 int, y0 int, y1 int, target int) 
 func findNumberIn2DArrayCol(matrix [][]int, x0 int, x1 int, y0 int, target int) int {
 	top, down := x0, x1
 	for top <= down {
-		mid := top + (down - top) / 2
+		mid := top + (down-top)/2
 		if matrix[mid][y0] == target {
-			down = mid 
+			down = mid
 			break
 		} else if matrix[mid][y0] < target {
 			top = mid + 1

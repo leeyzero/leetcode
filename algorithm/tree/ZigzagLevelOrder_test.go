@@ -1,18 +1,20 @@
-package algorithm
+package tree
 
 import (
-	"testing"
 	"reflect"
+	"testing"
+
+	"github.com/leeyzero/leetcode/algorithm/base"
 )
 
 func TestZigzagLevelOrder(t *testing.T) {
 	in := []int{3, 9, -1, -1, 20, 15, -1, -1, 7}
 	want := [][]int{
-		[]int{3}, 
-		[]int{20, 9},
-		[]int{15, 7},
+		{3},
+		{20, 9},
+		{15, 7},
 	}
-	root := makeTreeNode(in)
+	root := base.MarshalTreeNodeByPreorder(in)
 	if got := zigzagLevelOrder(root); !reflect.DeepEqual(got, want) {
 		t.Errorf("zigzagLevelOrder(%v).got:%v want:%v", in, got, want)
 	}

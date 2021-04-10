@@ -13,9 +13,9 @@ func TestMinDepth(t *testing.T) {
 	}
 	for _, test := range tests {
 		numbers := (test[0]).([]int)
-		root, err := base.UnmarshalTreeNode(numbers)
+		root, err := base.UnmarshalTreeNodeByLevelorder(numbers)
 		if err != nil {
-			t.Fatalf("UnmarshalTreeNode(%v) fail.err:%v", numbers, err)
+			t.Fatalf("UnmarshalTreeNodeByLevelorder(%v) fail.err:%v", numbers, err)
 		}
 		want := (test[1]).(int)
 		if got := minDepth(root); got != want {
@@ -31,9 +31,9 @@ func TestMinDepth2(t *testing.T) {
 	}
 	for _, test := range tests {
 		numbers := (test[0]).([]int)
-		root, err := base.UnmarshalTreeNode(numbers)
+		root, err := base.UnmarshalTreeNodeByLevelorder(numbers)
 		if err != nil {
-			t.Fatalf("UnmarshalTreeNode(%v) fail.err:%v", numbers, err)
+			t.Fatalf("UnmarshalTreeNodeByLevelorder(%v) fail.err:%v", numbers, err)
 		}
 		want := (test[1]).(int)
 		if got := minDepth2(root); got != want {

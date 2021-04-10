@@ -18,11 +18,10 @@ func NewMedianFinder() *MedianFinder {
 	}
 }
 
-
-func (this *MedianFinder) AddNum(num int)  {
+func (this *MedianFinder) AddNum(num int) {
 	m, n := len(this.maxHeap), len(this.minHeap)
 	if m == n {
-		// m等于n，将元素添加至maxHeap。先将num插入minHeap，再将minHeap的堆顶元素插入maxHeap 
+		// m等于n，将元素添加至maxHeap。先将num插入minHeap，再将minHeap的堆顶元素插入maxHeap
 		this.minHeap = pushMinHeap(this.minHeap, num)
 		this.minHeap, num, _ = popMinHeap(this.minHeap)
 		this.maxHeap = pushMaxHeap(this.maxHeap, num)
@@ -34,7 +33,6 @@ func (this *MedianFinder) AddNum(num int)  {
 	}
 }
 
-
 func (this *MedianFinder) FindMedian() float64 {
 	if len(this.maxHeap) <= 0 {
 		return float64(0)
@@ -42,17 +40,17 @@ func (this *MedianFinder) FindMedian() float64 {
 
 	m, n := len(this.maxHeap), len(this.minHeap)
 	if m == n {
-		return float64(this.maxHeap[0] + this.minHeap[0]) / float64(2)
+		return float64(this.maxHeap[0]+this.minHeap[0]) / float64(2)
 	}
 	return float64(this.maxHeap[0])
 }
 
 func parent(i int) int {
-	return (i-1) / 2
+	return (i - 1) / 2
 }
 
 func left(i int) int {
-	return 2 * i + 1
+	return 2*i + 1
 }
 
 func pushMaxHeap(arr []int, num int) []int {
@@ -78,7 +76,7 @@ func popMaxHeap(arr []int) ([]int, int, error) {
 	p := 0
 	c := left(p)
 	for c < len(arr) {
-		if c < len(arr) - 1 && arr[c] < arr[c+1] {
+		if c < len(arr)-1 && arr[c] < arr[c+1] {
 			c++
 		}
 		if arr[p] < arr[c] {
@@ -113,7 +111,7 @@ func popMinHeap(arr []int) ([]int, int, error) {
 	p := 0
 	c := left(p)
 	for c < len(arr) {
-		if c < len(arr) - 1 && arr[c] > arr[c+1] {
+		if c < len(arr)-1 && arr[c] > arr[c+1] {
 			c++
 		}
 		if arr[p] > arr[c] {

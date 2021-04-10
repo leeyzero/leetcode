@@ -1,8 +1,5 @@
 package algorithm
 
-import (
-	"fmt"
-)
 // https://leetcode-cn.com/problems/ji-qi-ren-de-yun-dong-fan-wei-lcof/
 func movingCount(m int, n int, k int) int {
 	if m <= 0 || n <= 0 || k < 0 {
@@ -23,7 +20,7 @@ func movingCountCore(i int, j int, k int, visited [][]bool, ans *int) {
 	if i < 0 || i >= len(visited) || j < 0 || j >= len(visited[i]) || visited[i][j] || !isCoordValid(i, j, k) {
 		return
 	}
-	
+
 	visited[i][j] = true
 	*ans++
 	// 上
@@ -37,8 +34,7 @@ func movingCountCore(i int, j int, k int, visited [][]bool, ans *int) {
 }
 
 func isCoordValid(i, j int, k int) bool {
-	if sumNumber(i) + sumNumber(j) <= k {
-		fmt.Println(i, j, k)
+	if sumNumber(i)+sumNumber(j) <= k {
 		return true
 	}
 	return false

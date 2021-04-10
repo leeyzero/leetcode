@@ -15,8 +15,7 @@ func TestMovingCount(t *testing.T) {
 		p2 := test[1]
 		p3 := test[2]
 		want := test[3]
-		got := movingCount(p1, p2, p3); 
-		t.Logf("got:%v", got)
+		got := movingCount(p1, p2, p3)
 		if got != want {
 			t.Errorf("movingCount(%v, %v, %v).got:%v want:%v", p1, p2, p3, got, want)
 		}

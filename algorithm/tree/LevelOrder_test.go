@@ -9,9 +9,9 @@ import (
 
 func TestLevelOrder(t *testing.T) {
 	in := []int{3, 9, 20, -1, -1, 15, 7}
-	root, err := base.UnmarshalTreeNode(in)
+	root, err := base.UnmarshalTreeNodeByLevelorder(in)
 	if err != nil {
-		t.Fatalf("UnmarshalTreeNode(%v) fail.err:%v", in, err)
+		t.Fatalf("UnmarshalTreeNodeByLevelorder(%v) fail.err:%v", in, err)
 	}
 
 	if got, want := levelOrder(root), []int{3, 9, 20, 15, 7}; !reflect.DeepEqual(got, want) {
