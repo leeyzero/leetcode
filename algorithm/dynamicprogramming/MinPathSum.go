@@ -34,3 +34,33 @@ func minPathSum(grid [][]int) int {
 	}
 	return dp[m-1][n-1]
 }
+
+// 方法二：空间压缩
+// 使用一维数组，对于第i行，当计算第j列时，j-1的值已经计算好保存在d[j-1]中，
+// i-1行第j列的值上次已经计算出来保存到了dp[j]中,所有状态转移方程为
+// dp[j] = grid[i][j] (i=0 and j=0)
+// dp[j] = grid[i][j] + dp[j-1] (i=0)
+// dp[j] = grid[i][j] + dp[j] (j=0)
+// dp[j] = grid[i][j] + min(dp[j], dp[j-1])
+func minPathSum2(grid [][]int) int {
+    if len(grid) <= 0 {
+        return 0
+    }
+
+    m, n := len(grid), len(grid[0])
+    dp := make([]int, n)
+    for i := 0; i < m; i++ {
+        for j := 0; j < n; j++ {
+            if i == 0 && j == 0 {
+                dp[j] = grid[i][j]
+            } else if i == 0 {
+                dp[j] = dp[j-1] + grid[i][j]
+            } else if j == 0 {
+                dp[j] = dp[j] + grid[i][j]
+            } else {
+                dp[j] = grid[i][j] + base.Min(dp[j], dp[j-1])
+            }
+        }
+    }
+    return dp[n-1]
+}
