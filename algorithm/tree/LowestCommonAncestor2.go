@@ -1,14 +1,17 @@
-package algorithm
+package tree
 
-// 剑指 Offer 68 - II. 二叉树的最近公共祖先
+import "github.com/leeyzero/leetcode/algorithm/base"
+
 // https://leetcode-cn.com/problems/er-cha-shu-de-zui-jin-gong-gong-zu-xian-lcof/
-// 解题思路：先遍历树分别找到p，q的路径，然后从p，q路径开始找第一个分叉点，则分叉点的前一个即为公共祖先
-func lowestCommonAncestor2(root *TreeNode, p *TreeNode, q *TreeNode) *TreeNode{
+// 题目：剑指 Offer 68 - II. 二叉树的最近公共祖先
+// 难度：简单
+// 思路：先遍历树分别找到p，q的路径，然后从p，q路径开始找第一个分叉点，则分叉点的前一个即为公共祖先
+func lowestCommonAncestor2(root *base.TreeNode, p *base.TreeNode, q *base.TreeNode) *base.TreeNode {
 	if root == nil || p == nil || q == nil {
 		return nil
 	}
 
-	pPath, qPath := []*TreeNode{}, []*TreeNode{}
+	pPath, qPath := []*base.TreeNode{}, []*base.TreeNode{}
 	pFound, qFound := false, false
 	findNodePath(root, p, &pPath, &pFound)
 	findNodePath(root, q, &qPath, &qFound)
@@ -16,7 +19,7 @@ func lowestCommonAncestor2(root *TreeNode, p *TreeNode, q *TreeNode) *TreeNode{
 		return nil
 	}
 
-	var ans *TreeNode
+	var ans *base.TreeNode
 	for i, j := 0, 0; i < len(pPath) && j < len(qPath); i, j = i+1, j+1 {
 		if pPath[i] == qPath[j] {
 			ans = pPath[i]
@@ -27,9 +30,9 @@ func lowestCommonAncestor2(root *TreeNode, p *TreeNode, q *TreeNode) *TreeNode{
 	return ans
 }
 
-func findNodePath(node *TreeNode, target *TreeNode, path *[]*TreeNode, found *bool) {
+func findNodePath(node *base.TreeNode, target *base.TreeNode, path *[]*base.TreeNode, found *bool) {
 	if node == nil || *found {
-		return 
+		return
 	}
 
 	*path = append(*path, node)
