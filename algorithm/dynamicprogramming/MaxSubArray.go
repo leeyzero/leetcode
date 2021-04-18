@@ -5,9 +5,11 @@ import (
 )
 
 // https://leetcode-cn.com/problems/lian-xu-zi-shu-zu-de-zui-da-he-lcof/
+// 题目：剑指 Offer 42. 连续子数组的最大和
+// 难度：简单
 // 解题思路：f(i)表示元素nums[i]为结尾的连续数组最大和
-// f(i) = nums[i] i == 0 或则 f(i-1) <= 0
-// f(i) = f(i-1) + nums[i] i > 0 并且 f(i-1) > 0
+// f(i) = nums[i]， i == 0 或则 f(i-1) <= 0
+// f(i) = f(i-1) + nums[i]， i > 0 并且 f(i-1) > 0
 func maxSubArray(nums []int) int {
 	dp := make([]int, len(nums))
 	ans := math.MinInt32
