@@ -1,4 +1,4 @@
-package algorithm
+package array
 
 // https://leetcode-cn.com/problems/shun-shi-zhen-da-yin-ju-zhen-lcof/
 // 题目：剑指 Offer 29. 顺时针打印矩阵 / 54. 螺旋矩阵
