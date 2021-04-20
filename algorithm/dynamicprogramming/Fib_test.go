@@ -1,4 +1,4 @@
-package algorithm
+package dynamicprogramming
 
 import (
 	"testing"
@@ -6,13 +6,13 @@ import (
 
 func TestFib(t *testing.T) {
 	tests := [][]int{
-		[]int{0, 0},
-		[]int{1, 1},
-		[]int{2, 1},
-		[]int{3, 2},
-		[]int{4, 3},
-		[]int{5, 5},
-		[]int{45, 134903163},
+		{0, 0},
+		{1, 1},
+		{2, 1},
+		{3, 2},
+		{4, 3},
+		{5, 5},
+		{45, 134903163},
 	}
 	for _, test := range tests {
 		if r := fib(test[0]); r != test[1] {

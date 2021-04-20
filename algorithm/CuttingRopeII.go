@@ -1,7 +1,9 @@
 package algorithm
 
 // https://leetcode-cn.com/problems/jian-sheng-zi-ii-lcof/solution/mian-shi-ti-14-ii-jian-sheng-zi-iitan-xin-er-fen-f/
-// 解题思路：
+// 题目：剑指 Offer 14- II. 剪绳子 II
+// 难度：中等
+// 思路：
 // 切分规则：
 // 最优： 3 。把绳子尽可能切为多个长度为 3 的片段，留下的最后一段绳子的长度可能为 0,1,2 三种情况。
 // 次优： 2 。若最后一段绳子长度为 2 ；则保留，不再拆为 1+1。

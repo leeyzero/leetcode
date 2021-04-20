@@ -1,8 +1,6 @@
 package dynamicprogramming
 
 import (
-	"fmt"
-
 	"github.com/leeyzero/leetcode/algorithm/base"
 )
 
@@ -32,10 +30,8 @@ func maximalSquare(matrix [][]byte) int {
 			if matrix[i-1][j-1] == '1' {
 				dp[i][j] = base.Min(dp[i-1][j-1], base.Min(dp[i-1][j], dp[i][j-1])) + 1
 			}
-			fmt.Println(dp[i][j])
 			ans = base.Max(ans, dp[i][j])
 		}
 	}
-	fmt.Println(dp)
 	return ans * ans
 }

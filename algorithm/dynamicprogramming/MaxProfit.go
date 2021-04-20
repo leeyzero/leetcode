@@ -1,11 +1,15 @@
-package algorithm
+package dynamicprogramming
 
 import (
 	"math"
+
+	"github.com/leeyzero/leetcode/algorithm/base"
 )
 
 // https://leetcode-cn.com/problems/gu-piao-de-zui-da-li-run-lcof/
-// 解题思路：动态规划
+// 题目：剑指 Offer 63. 股票的最大利润
+// 难度：中等
+// 思路：动态规划
 // dp[i]表示第i天的最大收益
 // dp[i] = max(dp[i-1], prices[i] - min_cost(0...i))
 // 初始态：dp[0] = 0
@@ -18,8 +22,8 @@ func maxProfit(prices []int) int {
 	dp[0] = 0
 	cost := math.MaxInt32
 	for i := 1; i < len(prices); i++ {
-		cost = min(cost, prices[i-1])
-		dp[i] = max(dp[i-1], prices[i] - cost)
+		cost = base.Min(cost, prices[i-1])
+		dp[i] = base.Max(dp[i-1], prices[i]-cost)
 	}
 	return dp[len(dp)-1]
 }
