@@ -1,5 +1,9 @@
-package algorithm
+package other
 
+// https://leetcode-cn.com/problems/lru-cache/
+// 题目：146. LRU 缓存机制
+// 难度：中等
+// 思路：
 // LRU: least recent used
 // 条件要求Get和Put满足O(1)时间复杂度，看起来哈希可以满足，但在移除最久未使用的数据或调整最近访问的数据时
 // 仅仅靠hash做不到，但链表可以做到在O(1)时间增加或删除数据，将hash和链表结合起来可以满足需求。
