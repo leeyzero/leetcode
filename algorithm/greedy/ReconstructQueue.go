@@ -1,4 +1,4 @@
-package algorithm
+package greedy
 
 import (
 	"sort"
