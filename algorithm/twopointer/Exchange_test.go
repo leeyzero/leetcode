@@ -1,4 +1,4 @@
-package algorithm
+package twopointer
 
 import (
 	"reflect"
@@ -7,7 +7,7 @@ import (
 
 func TestExchange(t *testing.T) {
 	tests := [][]interface{}{
-		{[]int{1,2,3,4}, []int{1,3,2,4}},
+		{[]int{1, 2, 3, 4}, []int{1, 3, 2, 4}},
 	}
 	for _, test := range tests {
 		in := (test[0]).([]int)
