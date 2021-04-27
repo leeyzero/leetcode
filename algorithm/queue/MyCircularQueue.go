@@ -1,6 +1,8 @@
-package algorithm
+package queue
 
 // https://leetcode-cn.com/problems/design-circular-queue/
+// 题目：622. 设计循环队列
+// 难度：中等
 // 思路：用数组实现循环队列，front指向对头，tail指向队尾，其中tail可以通过front计算得出
 // tail = (front + size - 1) % capacity
 type MyCircularQueue struct {
