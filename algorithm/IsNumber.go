@@ -18,35 +18,35 @@ const (
 )
 
 var states = []map[byte]int{
-	map[byte]int{ // stateBegin
+	{ // stateBegin
 		's': stateSignBeforeE,
 		'd': stateDigitBeforeDot,
 		'.': stateDigitAfterDotWithEmptyInteger,
 	},
-	map[byte]int{ // stateSignBeforeE
+	{ // stateSignBeforeE
 		'd': stateDigitBeforeDot,
 		'.': stateDigitAfterDotWithEmptyInteger,
 	},
-	map[byte]int{ // stateDigitBeforeDot
+	{ // stateDigitBeforeDot
 		'd': stateDigitBeforeDot,
 		'.': stateDigitAfterDot,
 		'e': stateE,
 	},
-	map[byte]int{ // stateDigitAfterDot
+	{ // stateDigitAfterDot
 		'd': stateDigitAfterDot,
 		'e': stateE,
 	},
-	map[byte]int{ // stateDigitAfterDotWithEmptyInteger
+	{ // stateDigitAfterDotWithEmptyInteger
 		'd': stateDigitAfterDot,
 	},
-	map[byte]int{ // stateE
+	{ // stateE
 		's': stateSignAfterE,
 		'd': stateDigitExponent,
 	},
-	map[byte]int{ // stateSignAfterE
+	{ // stateSignAfterE
 		'd': stateDigitExponent,
 	},
-	map[byte]int{ // stateDigitExponent
+	{ // stateDigitExponent
 		'd': stateDigitExponent,
 	},
 }
