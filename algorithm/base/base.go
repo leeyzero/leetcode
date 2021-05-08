@@ -63,6 +63,22 @@ func LevelOrderTraverseTreeNode(root *TreeNode) []int {
 	return ans
 }
 
+func PreOrderTraverseTreeNode(root *TreeNode) []int {
+	ans := []int{}
+	var closure func(node *TreeNode)
+	closure = func(node *TreeNode) {
+		if node == nil {
+			return
+		}
+
+		ans = append(ans, node.Val)
+		closure(node.Left)
+		closure(node.Right)
+	}
+	closure(root)
+	return ans
+}
+
 // 按层序遍历反序列化成一棵树，如：
 // 输入：
 // [3,9,20,-1,-1,15,7]
