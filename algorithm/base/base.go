@@ -137,3 +137,30 @@ func unmarshalTreeNodeByPreorderCore(node **TreeNode, vals *[]int) {
 	unmarshalTreeNodeByPreorderCore(&(*node).Left, vals)
 	unmarshalTreeNodeByPreorderCore(&(*node).Right, vals)
 }
+
+// 按前序遍历反序列化
+// [1, 2, 4, -1, -1, 5, -1, -1, 3, -1, -1]
+//      1
+//   2    3
+// 4  5
+func MakeTreeNode(vals []int) *TreeNode {
+	root := (*TreeNode)(nil)
+	makeTreeNodeAux(&root, &vals)
+	return root
+}
+
+func makeTreeNodeAux(node **TreeNode, vals *[]int) {
+	if len(*vals) <= 0 {
+		return
+	}
+
+	val := (*vals)[0]
+	*vals = (*vals)[1:]
+	if val == -1 {
+		return
+	}
+
+	*node = &TreeNode{val, nil, nil}
+	makeTreeNodeAux(&(*node).Left, vals)
+	makeTreeNodeAux(&(*node).Right, vals)
+}
