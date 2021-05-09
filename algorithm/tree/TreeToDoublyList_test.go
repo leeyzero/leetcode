@@ -1,8 +1,10 @@
-package algorithm
+package tree
 
 import (
 	"reflect"
 	"testing"
+
+	"github.com/leeyzero/leetcode/algorithm/base"
 )
 
 func TestTreeToDoubleList(t *testing.T) {
@@ -13,8 +15,8 @@ func TestTreeToDoubleList(t *testing.T) {
 	for _, test := range tests {
 		p1 := (test[0]).([]int)
 		want := (test[1]).([]int)
-		root := makeTreeNode(p1)
-		head := treeToDoublyList(root);
+		root := base.MakeTreeNode(p1)
+		head := treeToDoublyList(root)
 		got := []int{head.Val}
 		for curr := head.Right; curr != head; curr = curr.Right {
 			got = append(got, curr.Val)
