@@ -1,8 +1,10 @@
-package algorithm
+package tree
 
 import (
 	"strconv"
 	"strings"
+
+	"github.com/leeyzero/leetcode/algorithm/base"
 )
 
 // https://leetcode-cn.com/problems/serialize-and-deserialize-bst/
@@ -15,9 +17,9 @@ type Codec struct {
 }
 
 // BFS
-func (this *Codec) serialize(root *TreeNode) string {
+func (this *Codec) serialize(root *base.TreeNode) string {
 	tokens := []string{}
-	q := []*TreeNode{root}
+	q := []*base.TreeNode{root}
 	for len(q) > 0 {
 		front := q[0]
 		q = q[1:]
@@ -32,27 +34,27 @@ func (this *Codec) serialize(root *TreeNode) string {
 	return strings.Join(tokens, ",")
 }
 
-func (this *Codec) deserialize(data string) *TreeNode {
+func (this *Codec) deserialize(data string) *base.TreeNode {
 	tokens := strings.Split(data, ",")
 	if len(tokens) <= 0 {
 		return nil
 	}
 
 	rootVal, _ := strconv.ParseInt(tokens[0], 10, 32)
-	root := &TreeNode{int(rootVal), nil, nil}
-	q := []*TreeNode{root}
+	root := &base.TreeNode{int(rootVal), nil, nil}
+	q := []*base.TreeNode{root}
 	i := 1
 	for len(q) > 0 {
 		front := q[0]
 		q = q[1:]
-		children := []**TreeNode{&front.Left, &front.Right}
+		children := []**base.TreeNode{&front.Left, &front.Right}
 		for j := 0; j < len(children) && (i+j) < len(tokens); j++ {
 			if tokens[i+j] == "#" {
 				continue
 			}
 
 			val, _ := strconv.ParseInt(tokens[i+j], 10, 32)
-			*children[j] = &TreeNode{int(val), nil, nil}
+			*children[j] = &base.TreeNode{int(val), nil, nil}
 			q = append(q, *children[j])
 		}
 		i += len(children)
@@ -61,13 +63,13 @@ func (this *Codec) deserialize(data string) *TreeNode {
 }
 
 // DFS
-func (this *Codec) serialize2(root *TreeNode) string {
+func (this *Codec) serialize2(root *base.TreeNode) string {
 	var ans []string
 	this.serialize2Core(root, &ans)
 	return strings.Join(ans, ",")
 }
 
-func (this *Codec) serialize2Core(node *TreeNode, ans *[]string) {
+func (this *Codec) serialize2Core(node *base.TreeNode, ans *[]string) {
 	if node == nil {
 		*ans = append(*ans, "#")
 		return
@@ -78,15 +80,15 @@ func (this *Codec) serialize2Core(node *TreeNode, ans *[]string) {
 	this.serialize2Core(node.Right, ans)
 }
 
-func (this *Codec) deserialize2(data string) *TreeNode {
+func (this *Codec) deserialize2(data string) *base.TreeNode {
 	tokens := strings.Split(data, ",")
 	var pos int
-	root := (*TreeNode)(nil)
+	root := (*base.TreeNode)(nil)
 	this.deserialize2Core(&pos, tokens, &root)
 	return root
 }
 
-func (this *Codec) deserialize2Core(pos *int, tokens []string, node **TreeNode) {
+func (this *Codec) deserialize2Core(pos *int, tokens []string, node **base.TreeNode) {
 	if *pos >= len(tokens) {
 		return
 	}
@@ -97,7 +99,7 @@ func (this *Codec) deserialize2Core(pos *int, tokens []string, node **TreeNode) 
 	}
 
 	val, _ := strconv.ParseInt(tokens[*pos], 10, 64)
-	*node = &TreeNode{int(val), nil, nil}
+	*node = &base.TreeNode{int(val), nil, nil}
 	*pos++
 	this.deserialize2Core(pos, tokens, &(*node).Left)
 	this.deserialize2Core(pos, tokens, &(*node).Right)
