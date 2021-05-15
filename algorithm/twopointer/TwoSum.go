@@ -1,6 +1,9 @@
-package algorithm
+package twopointer
 
 // https://leetcode-cn.com/problems/he-wei-sde-liang-ge-shu-zi-lcof/
+// 题目：剑指 Offer 57. 和为s的两个数字
+// 难度：简单
+// 思路：双指针
 func twoSum(nums []int, target int) []int {
 	ans := []int{}
 	if len(nums) <= 1 {
