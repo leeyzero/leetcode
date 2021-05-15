@@ -1,7 +1,9 @@
-package algorithm
+package queue
 
 // https://leetcode-cn.com/problems/dui-lie-de-zui-da-zhi-lcof/
-// 解题思路：单调队列
+// 题目：剑指 Offer 59 - II. 队列的最大值
+// 难度：中等
+// 思路：单调队列
 type MaxQueue struct {
 	que    []int
 	maxQue []int
