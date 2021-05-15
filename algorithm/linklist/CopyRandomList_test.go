@@ -1,9 +1,9 @@
-package algorithm
+package linklist
 
 import (
 	"testing"
 )
 
 func TestCopyRandomList(t *testing.T) {
-	// TODO
+	t.Skipf("TODO: not implemented")
 }
