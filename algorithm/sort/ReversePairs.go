@@ -1,6 +1,9 @@
-package algorithm
+package sort
 
 // https://leetcode-cn.com/problems/shu-zu-zhong-de-ni-xu-dui-lcof/
+// 题目：剑指 Offer 51. 数组中的逆序对
+// 难度：困难
+// 思路：归并排序
 func reversePairs(nums []int) int {
 	return reversePairsCore(nums, 0, len(nums)-1)
 }
@@ -10,10 +13,10 @@ func reversePairsCore(nums []int, left int, right int) int {
 		return 0
 	}
 
-	mid := left + (right - left) / 2
-	cnt := reversePairsCore(nums, left, mid) + reversePairsCore(nums, mid + 1, right)
+	mid := left + (right-left)/2
+	cnt := reversePairsCore(nums, left, mid) + reversePairsCore(nums, mid+1, right)
 	tmp := []int{}
-	i, j := left, mid + 1
+	i, j := left, mid+1
 	for i <= mid && j <= right {
 		if nums[i] <= nums[j] {
 			tmp = append(tmp, nums[i])
@@ -32,7 +35,7 @@ func reversePairsCore(nums []int, left int, right int) int {
 		tmp = append(tmp, nums[j])
 	}
 	for i := left; i <= right; i++ {
-		nums[i] = tmp[i - left]
+		nums[i] = tmp[i-left]
 	}
 	return cnt
 }

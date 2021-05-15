@@ -1,4 +1,4 @@
-package algorithm
+package sort
 
 import (
 	"testing"
