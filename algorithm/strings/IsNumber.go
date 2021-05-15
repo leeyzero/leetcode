@@ -1,11 +1,13 @@
-package algorithm
+package strings
 
 import (
 	"strings"
 )
 
 // https://leetcode-cn.com/problems/biao-shi-shu-zhi-de-zi-fu-chuan-lcof/
-// 解题思路：状态机 A[.[B]][e|EC]
+// 题目：剑指 Offer 20. 表示数值的字符串
+// 难度：中等
+// 思路：状态机 A[.[B]][e|EC]
 const (
 	stateBegin = iota
 	stateSignBeforeE
