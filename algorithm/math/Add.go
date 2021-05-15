@@ -1,7 +1,9 @@
-package algorithm
+package math
 
 // https://leetcode-cn.com/problems/bu-yong-jia-jian-cheng-chu-zuo-jia-fa-lcof/
-// 解题思路：
+// 题目：剑指 Offer 65. 不用加减乘除做加法
+// 描述：写一个函数，求两个整数之和，要求在函数体内不得使用 “+”、“-”、“*”、“/” 四则运算符号。
+// 思路：
 // a(i)   b(i)   无进位和n(i)   进位c(i+1)
 // 0      0      0             0
 // 0      1      1             0
