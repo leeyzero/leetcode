@@ -1,6 +1,9 @@
-package algorithm
+package dynamicprogramming
 
-// https://leetcode-cn.com/problems/lru-cache/
+// https://leetcode-cn.com/problems/zheng-ze-biao-da-shi-pi-pei-lcof/
+// 题目：剑指 Offer 19. 正则表达式匹配
+// 难度：困难
+// 描述：
 // 对于s和p，逐一匹配. 当匹配s[i]和p[j]是，在匹配过程中，对于p有三种情况：
 // 1. p[j]为正常字符
 // 2. p[j]为字符'.'
@@ -11,6 +14,7 @@ package algorithm
 // 出现0次时，p直接跳过两个字符，匹配s[i]和p[j+2]即可
 // 出现至少一次时，检查s[i]是否等于p[j]，如果不相等匹配失败，如果相等，匹配s[i+1]和p[j]即可
 // 结束条件：当p能匹配完s时，表示完全匹配
+// 思路：递归，动态规划，备忘录都可以解决
 func IsMatchByRecursive(s, p string) bool {
 	if len(p) <= 0 {
 		return len(s) == 0
