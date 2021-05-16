@@ -1,4 +1,4 @@
-package algorithm
+package hash
 
 import (
 	"testing"
