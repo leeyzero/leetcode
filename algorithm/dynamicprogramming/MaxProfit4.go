@@ -1,8 +1,6 @@
 package dynamicprogramming
 
 import (
-	"fmt"
-
 	"github.com/leeyzero/leetcode/algorithm/base"
 )
 
@@ -54,7 +52,6 @@ func maxProfit4(k int, prices []int) int {
 			dp[i][j][1] = base.Max(dp[i-1][j][1], dp[i-1][j-1][0]-prices[i])
 		}
 	}
-	fmt.Println(dp)
 	return dp[n-1][k][0]
 }
 
