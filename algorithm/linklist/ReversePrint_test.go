@@ -1,8 +1,10 @@
-package algorithm
+package linklist
 
 import (
 	"reflect"
 	"testing"
+
+	"github.com/leeyzero/leetcode/algorithm/base"
 )
 
 func TestReversePrint(t *testing.T) {
@@ -13,7 +15,7 @@ func TestReversePrint(t *testing.T) {
 	for _, test := range tests {
 		in := (test[0]).([]int)
 		want := (test[1]).([]int)
-		if got := reversePrint(makeLinkList(in)); !reflect.DeepEqual(got, want) {
+		if got := reversePrint(base.MakeLinkList(in)); !reflect.DeepEqual(got, want) {
 			t.Errorf("reversePrint(%v).got:%v want:%v", in, got, want)
 		}
 	}

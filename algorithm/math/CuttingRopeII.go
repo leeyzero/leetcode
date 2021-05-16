@@ -1,4 +1,4 @@
-package algorithm
+package math
 
 // https://leetcode-cn.com/problems/jian-sheng-zi-ii-lcof/solution/mian-shi-ti-14-ii-jian-sheng-zi-iitan-xin-er-fen-f/
 // 题目：剑指 Offer 14- II. 剪绳子 II

@@ -1,4 +1,4 @@
-package algorithm
+package math
 
 import (
 	"reflect"

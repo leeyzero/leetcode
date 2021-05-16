@@ -1,4 +1,4 @@
-package algorithm
+package twopointer
 
 import (
 	"reflect"
@@ -18,6 +18,9 @@ func TestGetLeastNumbers(t *testing.T) {
 		want := (test[2]).([]int)
 		if got := getLeastNumbers(p1, p2); !reflect.DeepEqual(got, want) {
 			t.Errorf("getLeastNumbers(%v, %v).got:%v want:%v", p1, p2, got, want)
+		}
+		if got := getLeastNumbers2(p1, p2); !reflect.DeepEqual(got, want) {
+			t.Errorf("getLeastNumbers2(%v, %v).got:%v want:%v", p1, p2, got, want)
 		}
 	}
 }
