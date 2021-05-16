@@ -1,10 +1,13 @@
-package algorithm
+package dynamicprogramming
 
 import (
 	"strconv"
 )
+
 // https://leetcode-cn.com/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof/
-// 解题思路：动态规划
+// 题目：剑指 Offer 46. 把数字翻译成字符串
+// 难度：中等
+// 思路：动态规划
 // num表示为X1X2X3...Xn
 // 记f(i)表示以Xi结尾的字符串
 // 当XnXn-1为整体翻译时，翻译的方案数为f(i-2)
