@@ -1,9 +1,9 @@
-package algorithm
+package math
 
 import (
 	"reflect"
-	"testing"
 	"sort"
+	"testing"
 )
 
 func TestSingleNumbers(t *testing.T) {
@@ -14,7 +14,7 @@ func TestSingleNumbers(t *testing.T) {
 	for _, test := range tests {
 		in := (test[0]).([]int)
 		want := (test[1]).([]int)
-		got := singleNumbers(in); 
+		got := singleNumbers(in)
 		sort.Slice(got, func(i, j int) bool {
 			return got[i] < got[j]
 		})
