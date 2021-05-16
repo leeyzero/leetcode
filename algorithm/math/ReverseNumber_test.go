@@ -1,4 +1,4 @@
-package algorithm
+package math
 
 import (
 	"testing"
@@ -6,9 +6,9 @@ import (
 
 func TestReverseNumber(t *testing.T) {
 	tests := [][]int{
-		// {123, 321},
+		{123, 321},
 		{-123, -321},
-		// {120, 21},
+		{120, 21},
 	}
 	for _, test := range tests {
 		p1 := test[0]
