@@ -18,12 +18,11 @@ func maxProfit(prices []int) int {
 		return 0
 	}
 
-	dp := make([]int, len(prices))
-	dp[0] = 0
 	cost := math.MaxInt32
+	profit := 0
 	for i := 1; i < len(prices); i++ {
 		cost = base.Min(cost, prices[i-1])
-		dp[i] = base.Max(dp[i-1], prices[i]-cost)
+		profit = base.Max(profit, prices[i]-cost)
 	}
-	return dp[len(dp)-1]
+	return profit
 }
