@@ -1,10 +1,14 @@
-package algorithm
+package heap
 
 import (
 	"errors"
 )
 
 // https://leetcode-cn.com/problems/shu-ju-liu-zhong-de-zhong-wei-shu-lcof/
+// 题目：剑指 Offer 41. 数据流中的中位数
+// 难度：困难
+// 描述：如何得到一个数据流中的中位数？如果从数据流中读出奇数个数值，那么中位数就是所有数值排序之后位于中间的数值。如果从数据流中读出偶数个数值，那么中位数就是所有数值排序之后中间两个数的平均值。
+// 思路：使用大顶堆存储数组前半段，使用小顶堆存储数组后半段
 type MedianFinder struct {
 	maxHeap []int // 大顶堆，存储数组前半段
 	minHeap []int // 小顶堆，存储数组后半段
