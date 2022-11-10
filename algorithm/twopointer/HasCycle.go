@@ -1,6 +1,8 @@
 package twopointer
 
-import "github.com/leeyzero/leetcode/algorithm/base"
+import (
+	"github.com/leeyzero/leetcode/algorithm/base"
+)
 
 // https://leetcode-cn.com/problems/linked-list-cycle/
 // 141. 环形链表

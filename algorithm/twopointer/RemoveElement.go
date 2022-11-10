@@ -8,12 +8,12 @@ package twopointer
 // 元素的顺序可以改变。你不需要考虑数组中超出新长度后面的元素。
 // 思路：双指针
 func removeElement(nums []int, val int) int {
-	j := -1
-	for i := 0; i < len(nums); i++ {
-		if nums[i] != val {
-			j++
-			nums[j] = nums[i]
+	lo := -1
+	for hi := 0; hi < len(nums); hi++ {
+		if nums[hi] != val {
+			lo++
+			nums[lo] = nums[hi]
 		}
 	}
-	return j + 1
+	return lo + 1
 }
