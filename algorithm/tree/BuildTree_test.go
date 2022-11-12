@@ -13,6 +13,6 @@ func TestBuildTree(t *testing.T) {
 	root := buildTree(preorder, inorder)
 	r := base.PreOrderTraverseTreeNode(root)
 	if !reflect.DeepEqual(preorder, r) {
-		t.Errorf("BuildTree fail.got:%v want:%v", r, preorder)
+		t.Errorf("BuildTree failed.got:%v want:%v", r, preorder)
 	}
 }
