@@ -16,7 +16,13 @@ func TestCoinChange(t *testing.T) {
 		amount := (test[1]).(int)
 		want := (test[2]).(int)
 		if got := coinChange(coins, amount); got != want {
-			t.Errorf("coinChange(%v, %v).got:%v want:%v", coins, amount, got, want)
+			t.Errorf("coinChange(%v, %v) failed.got:%v want:%v", coins, amount, got, want)
+		}
+		if got := coinChange2(coins, amount); got != want {
+			t.Errorf("coinChange2(%v, %v) failed.got:%v want:%v", coins, amount, got, want)
+		}
+		if got := coinChange3(coins, amount); got != want {
+			t.Errorf("coinChange3(%v, %v) failed.got:%v want:%v", coins, amount, got, want)
 		}
 	}
 }

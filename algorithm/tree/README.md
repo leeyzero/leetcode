@@ -68,4 +68,5 @@ func traverse(node *TreeNode) {
 
 ## 参考资料
 [1] [Tree Traversals](https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/)
+
 [2] [labuladong fucking-algorithm](https://github.com/labuladong/fucking-algorithm/tree/plugin)

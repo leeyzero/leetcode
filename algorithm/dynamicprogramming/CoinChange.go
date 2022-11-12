@@ -1,6 +1,10 @@
 package dynamicprogramming
 
-import "github.com/leeyzero/leetcode/algorithm/base"
+import (
+	"math"
+
+	"github.com/leeyzero/leetcode/algorithm/base"
+)
 
 // https://leetcode-cn.com/problems/coin-change/
 // 题目：322. 零钱兑换
@@ -15,21 +19,95 @@ func coinChange(coins []int, amount int) int {
 		return -1
 	}
 
+	// 数组大小初始化为amount+1, 初始值也为amount+1
 	dp := make([]int, amount+1)
 	for i := 1; i < len(dp); i++ {
-		dp[i] = amount + 2
+		dp[i] = amount + 1
 	}
 
+	// base case
+	dp[0] = 0
+	// 外层循环遍历所有状态的所有取值
 	for i := 1; i <= amount; i++ {
+		// 内层循环求所有选择的最小值
 		for _, coin := range coins {
-			if i >= coin {
-				dp[i] = base.Min(dp[i], dp[i-coin]+1)
+			// 币值大于要兑换的零钱，无解，跳过
+			if coin > i {
+				continue
 			}
+			dp[i] = base.Min(dp[i], dp[i-coin]+1)
 		}
 	}
-
-	if dp[amount] == amount+2 {
+	if dp[amount] == amount+1 {
 		return -1
 	}
 	return dp[amount]
+}
+
+// 使用递归解法，自上而下
+func coinChange2(coins []int, amount int) int {
+	var closure func(n int) int
+	closure = func(n int) int {
+		if n < 0 {
+			return -1
+		}
+		if n == 0 {
+			return 0
+		}
+
+		ans := math.MaxInt
+		for _, coin := range coins {
+			subproblem := closure(n - coin)
+			if subproblem < 0 {
+				// 子问题无解，跳过
+				continue
+			}
+			ans = base.Min(ans, subproblem+1)
+		}
+		if ans == math.MaxInt {
+			ans = -1
+		}
+		return ans
+	}
+	return closure(amount)
+}
+
+// 带备忘录的递归
+func coinChange3(coins []int, amount int) int {
+	memo := map[int]int{}
+	var closure func(n int) int
+	closure = func(n int) int {
+		// 先查备忘录
+		if v, ok := memo[n]; ok {
+			return v
+		}
+
+		// base case
+		if n < 0 {
+			return -1
+		}
+		if n == 0 {
+			return 0
+		}
+
+		// 在子问题中选择最优解
+		ans := math.MaxInt
+		for _, coin := range coins {
+			subproblem := closure(n - coin)
+			if subproblem < 0 {
+				// 子问题无解，跳过
+				continue
+			}
+			ans = base.Min(ans, subproblem+1)
+		}
+		if ans == math.MaxInt {
+			ans = -1
+		}
+
+		// 写入备忘录
+		memo[n] = ans
+		return ans
+	}
+
+	return closure(amount)
 }
