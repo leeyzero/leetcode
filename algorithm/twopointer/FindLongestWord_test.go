@@ -18,3 +18,17 @@ func TestFindLongestWord(t *testing.T) {
 		}
 	}
 }
+
+func TestIsSubSequence(t *testing.T) {
+	cases := [][]interface{}{
+		{"apple", "abpcplea", true},
+		{"monkey", "abpcplea", false},
+	}
+	for _, c := range cases {
+		p1 := (c[0]).(string)
+		p2 := (c[1]).(string)
+		if got, want := isSubSequence(p1, p2), (c[2]).(bool); got != want {
+			t.Errorf("isSubSequence(%v, %v) failed.got:%v want:%v", p1, p2, got, want)
+		}
+	}
+}

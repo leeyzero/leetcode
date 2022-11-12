@@ -7,6 +7,19 @@ import (
 // https://leetcode-cn.com/problemset/all/?search=340
 // 题目：340.至多包含 K 个不同字符的最长子串
 // 难度：中等
+//
+// Given a string, find the length of the longest substring T that contains at most k distinct characters.
+// Example 1:
+//
+// Input: s = "eceba", k = 2
+// Output: 3
+// Explanation: T is "ece" which its length is 3.
+// Example 2:
+//
+// Input: s = "aa", k = 1
+// Output: 2
+// Explanation: T is "aa" which its length is 2.
+//
 // 思路：双指针，滑动窗口
 func lengthOfLongestSubstringKDistinct(s string, k int) int {
 	ans := 0
