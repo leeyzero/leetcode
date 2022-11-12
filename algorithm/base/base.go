@@ -42,6 +42,10 @@ func Min(x, y int) int {
 	return y
 }
 
+func Swap(x *int, y *int) {
+	*x, *y = *y, *x
+}
+
 func LevelOrderTraverseTreeNode(root *TreeNode) []int {
 	if root == nil {
 		return []int{}

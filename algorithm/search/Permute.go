@@ -1,5 +1,9 @@
 package search
 
+import (
+	"github.com/leeyzero/leetcode/algorithm/base"
+)
+
 // https://leetcode-cn.com/problems/permutations/
 // 题目：46. 全排列
 // 难度：中等
@@ -20,8 +24,8 @@ func backtrackingPermute(nums []int, pos int, ans *[][]int) {
 	}
 
 	for i := pos; i < len(nums); i++ {
-		nums[pos], nums[i] = nums[i], nums[pos]
+		base.Swap(&nums[pos], &nums[i])
 		backtrackingPermute(nums, pos+1, ans)
-		nums[pos], nums[i] = nums[i], nums[pos]
+		base.Swap(&nums[pos], &nums[i])
 	}
 }

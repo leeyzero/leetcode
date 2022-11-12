@@ -16,5 +16,8 @@ func TestSolveNQueues(t *testing.T) {
 		if got := solveNQueens(n); !reflect.DeepEqual(got, want) {
 			t.Errorf("solveNQueens(%v).got:%v want:%v", n, got, want)
 		}
+		if got := solveNQueens2(n); !reflect.DeepEqual(got, want) {
+			t.Errorf("solveNQueens2(%v).got:%v want:%v", n, got, want)
+		}
 	}
 }

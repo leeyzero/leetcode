@@ -15,7 +15,7 @@ import (
 // 思路：回溯法
 func solveNQueens(n int) [][]string {
 	var ans [][]string
-	var queens []int
+	var queens []int // queues[i] = j 表示(i, j)放置皇后
 	backtracking(n, queens, &ans)
 	return ans
 }
@@ -51,11 +51,72 @@ func conflict(queens []int, col int) bool {
 
 func dumpBoard(queens []int) []string {
 	var board []string
-	n := len(queens)
-	for i := 0; i < n; i++ {
+	for i, n := 0, len(queens); i < n; i++ {
 		curr := bytes.Repeat([]byte{'.'}, n)
 		curr[queens[i]] = 'Q'
 		board = append(board, string(curr))
 	}
 	return board
+}
+
+// 另一种更直观的解法
+func solveNQueens2(n int) [][]string {
+	// 初始化棋盘
+	var board [][]byte
+	for i := 0; i < n; i++ {
+		board = append(board, bytes.Repeat([]byte{'.'}, n))
+	}
+
+	var ans [][]string
+	backtrackingSloveNQueens(board, 0, &ans)
+	return ans
+}
+
+func backtrackingSloveNQueens(board [][]byte, row int, ans *[][]string) {
+	if row >= len(board) {
+		var curr []string
+		for _, row := range board {
+			curr = append(curr, string(row))
+		}
+		*ans = append(*ans, curr)
+		return
+	}
+
+	// 对当前行row，有col=n种选择
+	for col := 0; col < len(board); col++ {
+		// 有冲突，跳过
+		if isConflict(board, row, col) {
+			continue
+		}
+
+		// 放置皇后
+		board[row][col] = 'Q'
+		// 递归处理下一行
+		backtrackingSloveNQueens(board, row+1, ans)
+		// 恢复
+		board[row][col] = '.'
+	}
+}
+
+func isConflict(board [][]byte, row int, col int) bool {
+	// 检查row之前的
+	for i := 0; i < row; i++ {
+		// col列是否已经放置了皇后
+		if board[i][col] == 'Q' {
+			return true
+		}
+
+		// col的左对角是否放置了皇后
+		j := col - (row - i)
+		if (j >= 0) && (board[i][j] == 'Q') {
+			return true
+		}
+
+		// col的右对角是否放置了皇后
+		j = col + (row - i)
+		if (j < len(board)) && (board[i][j] == 'Q') {
+			return true
+		}
+	}
+	return false
 }
