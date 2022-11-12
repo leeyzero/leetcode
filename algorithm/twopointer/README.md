@@ -10,31 +10,38 @@
 ```
 
 ## 经验问题
-[有序数组中和为s的两个数字](https://leetcode-cn.com/problems/he-wei-sde-liang-ge-shu-zi-lcof/)
-难度：简单
-解题思路：首尾指针求和比较，相向移动，直到找到目标值或指针相遇。
+[有序数组中和为s的两个数字](https://leetcode-cn.com/problems/he-wei-sde-liang-ge-shu-zi-lcof/) 
+难度：简单 
+解题思路：首尾指针求和比较，相向移动，直到找到目标值或指针相遇。 
 
-[判断链表是否有环](https://leetcode-cn.com/problems/linked-list-cycle/)
-难度：简单
-解题思路：快慢指针，相向移动，直到它们相遇或链表结尾。
+[判断链表是否有环](https://leetcode-cn.com/problems/linked-list-cycle/) 
+难度：简单 
+解题思路：快慢指针，相向移动，直到它们相遇或链表结尾。 
 
-[删除有序数据中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
-难度：简单
+[删除有序数据中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/) 
+难度：简单 
 解题思路：双指针，分别跟踪无重复项和遍历数组，lo, hi 初始化为-1, 0。hi遍历数组，出现hi和lo不同时，lo向前移动，并将hi的值赋值给lo，
 直到遍历结束。
 
-[合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)
-难度：简单
+[合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/) 
+难度：简单 
 解题思路：如果允许开辟空间，会更简单一些，用两个指针分别指向两个数组的起始位置，比较将较小的值取出放入新空间中。但题目中，第一个数组有
 足够的空间，要求将结果放入第一个数组中。解题需要有点变通，用两个指针指向末尾，向前移动，并将较大的值放至第一个数组的末尾，直至遍历完两数组。
 
-[调整数组顺序使奇数位于偶数前面](https://leetcode-cn.com/problems/diao-zheng-shu-zu-shun-xu-shi-qi-shu-wei-yu-ou-shu-qian-mian-lcof/)
-难度：简单
+[调整数组顺序使奇数位于偶数前面](https://leetcode-cn.com/problems/diao-zheng-shu-zu-shun-xu-shi-qi-shu-wei-yu-ou-shu-qian-mian-lcof/) 
+难度：简单 
 解题思路：这个题跟[删除有序数据中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)类似，用两
 个指针分别跟踪已处理的下标和遍历数组，直到遍历完成。
 
+[数组中重复的数字](https://leetcode.cn/problems/shu-zu-zhong-zhong-fu-de-shu-zi-lcof/) 
+难度：简单 
+解题思路：这个题目比较直观的解法是使用hash，但题目有一个隐含的条件是数组中的所有数字都在0-n~1范围内。所以可以利用这个特性，让数组本身作为一个
+hash表，表的索引（下标）和值是相同的特性来解决。这样可以让空间复杂度做到O(1)。我们一个指针从数组头开始，跟踪目前已经处理的索引（下标），如果索引
+和指向的值相等，说明该值在正确的位置，移动指针。如果该值不在正确的位置且该值作为索引指向的值已经在正确的位置，说明重复，否则将该值放到正确的位置。
+
 [环形链表II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
-难度：中等
+
+难度：中等 
 解题思路：这种题如果不了解其原理，在短短的20分钟内，其实很难做出来。基本思路是使用快慢指针和一些技巧。
 
 解法一：先使用快慢指针判断链表是否有环，如果有环，那否一定能找到相遇点。当快慢指针第一次相遇时，如果慢指针走了k步，那么快指针走了2k步。

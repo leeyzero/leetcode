@@ -43,24 +43,24 @@ func minPathSum(grid [][]int) int {
 // dp[j] = grid[i][j] + dp[j] (j=0)
 // dp[j] = grid[i][j] + min(dp[j], dp[j-1])
 func minPathSum2(grid [][]int) int {
-    if len(grid) <= 0 {
-        return 0
-    }
+	if len(grid) <= 0 {
+		return 0
+	}
 
-    m, n := len(grid), len(grid[0])
-    dp := make([]int, n)
-    for i := 0; i < m; i++ {
-        for j := 0; j < n; j++ {
-            if i == 0 && j == 0 {
-                dp[j] = grid[i][j]
-            } else if i == 0 {
-                dp[j] = dp[j-1] + grid[i][j]
-            } else if j == 0 {
-                dp[j] = dp[j] + grid[i][j]
-            } else {
-                dp[j] = grid[i][j] + base.Min(dp[j], dp[j-1])
-            }
-        }
-    }
-    return dp[n-1]
+	m, n := len(grid), len(grid[0])
+	dp := make([]int, n)
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if i == 0 && j == 0 {
+				dp[j] = grid[i][j]
+			} else if i == 0 {
+				dp[j] = dp[j-1] + grid[i][j]
+			} else if j == 0 {
+				dp[j] = dp[j] + grid[i][j]
+			} else {
+				dp[j] = grid[i][j] + base.Min(dp[j], dp[j-1])
+			}
+		}
+	}
+	return dp[n-1]
 }

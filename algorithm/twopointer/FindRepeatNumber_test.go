@@ -11,10 +11,11 @@ func TestFindRepeatNumber(t *testing.T) {
 	}
 	table := []Table{
 		{[]int{2, 3, 1, 0, 2, 5, 3}, 2},
+		{[]int{3, 4, 2, 1, 1, 0}, 1},
 	}
 	for _, v := range table {
-		if findRepeatNumber(v.in) != v.out {
-			t.Errorf("test fail.case:%+v", v)
+		if got, want := findRepeatNumber(v.in), v.out; got != want {
+			t.Errorf("findRepeatNumber(%v) failed.got:%v want:%v", v.in, got, want)
 		}
 	}
 }
