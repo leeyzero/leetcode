@@ -8,6 +8,7 @@ package twopointer
 // 遍历数组，对每个数字放到属于它的位置上，如果这个位置已经已经放入了，说明该数字重复了
 func findRepeatNumber(nums []int) int {
 	dup := -1
+	
 	for i, n := range nums {
 		if n == i {
 			// n已经在正确位置，忽略

@@ -1,9 +1,9 @@
-package twopointer
+package slidingwindow
 
 // https://leetcode-cn.com/problems/minimum-window-substring/
 // 题目：76. 最小覆盖子串
 // 难度：困难
-// 思路：双指针(滑动窗口)，哈希
+// 思路：双指针，滑动窗口，哈希
 func minWindow(s string, t string) string {
 	hash := map[uint8]int{}
 	for i := 0; i < len(t); i++ {

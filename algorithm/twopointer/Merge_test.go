@@ -8,6 +8,8 @@ import (
 func TestMerge(t *testing.T) {
 	tests := [][]interface{}{
 		{[]int{1, 2, 3, 0, 0, 0}, 3, []int{2, 5, 6}, 3, []int{1, 2, 2, 3, 5, 6}},
+		{[]int{1}, 1, []int{}, 0, []int{1}},
+		{[]int{0}, 0, []int{1}, 1, []int{1}},
 	}
 	for _, test := range tests {
 		p1 := (test[0]).([]int)
