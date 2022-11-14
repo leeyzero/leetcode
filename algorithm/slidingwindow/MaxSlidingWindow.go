@@ -1,9 +1,5 @@
 package slidingwindow
 
-import (
-	"container/list"
-)
-
 // https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/
 // 题目：剑指 Offer 59 - I. 滑动窗口的最大值
 // 难度：困难
@@ -19,32 +15,31 @@ func maxSlidingWindow(nums []int, k int) []int {
 		return ans
 	}
 
-	deque := list.New()
-	left, right := 0, 0
-	for right < len(nums) {
-		// 维护单调递减队列，从尾结点开始，逐一跟待加入的结点比较，移除小于待加入的结点，保持队列递减性，
-		// 队头将始终保持最大值
-		// 注意，结点存储的是数据的下标
-		for deque.Len() > 0 && nums[(deque.Back().Value).(int)] < nums[right] {
-			deque.Remove(deque.Back())
+	var queue []int
+	for left, right := 0, 0; right < len(nums); {
+		// 维护单调递减队列，让队头将始终保持最大值
+		// 注意：队列中存储的是数组的下标
+		for len(queue) > 0 && nums[queue[len(queue)-1]] < nums[right] {
+			queue = queue[:len(queue)-1]
 		}
-		// 队头元素已经不在窗口中，需要移除
-		if deque.Len() > 0 && (deque.Front().Value).(int) < left {
-			deque.Remove(deque.Front())
-		}
-		deque.PushBack(right)
+		queue = append(queue, right)
 
-		size := right - left + 1
-		if size < k {
-			// 窗口还未完全打开，增大右指针
+		// 窗口还未完全打开，继续扩大窗口，窗口大小为：[left, right + 1）
+		if (right - left + 1) < k {
 			right++
 			continue
 		}
 
-		// 加入窗口最大值
-		ans = append(ans, nums[(deque.Front().Value).(int)])
-		// 滑动窗口
+		// 队头指向的元素即为窗口的最大值
+		ans = append(ans, nums[queue[0]])
+
+		// 同时增大窗口指针，滑动窗口
 		left, right = left+1, right+1
+
+		// 需要移除队头元素已经不在窗口中的下标
+		if len(queue) > 0 && queue[0] < left {
+			queue = queue[1:]
+		}
 	}
 	return ans
 }

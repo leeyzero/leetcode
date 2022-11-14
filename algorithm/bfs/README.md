@@ -4,7 +4,7 @@ BFS（Broad First Search，广度优先搜索），其核心思想是把问题�
 
 BFS与DFS的主要区别是：BFS找到的路径一定是最短的，但代价是空间复杂度比DFS高。
 
-## 代码框架
+## 算法框架
 ```
 # 伪代码
 func BFS(start *Node, target *Node) {
@@ -57,4 +57,6 @@ func BFS(start *Node, target *Node) {
 [752. 打开转盘锁](https://leetcode.cn/problems/open-the-lock/)
 
 ## 参考资料
-[1] [labuladong的算法小抄](https://item.jd.com/12759911.html)
+[1] [Breadth First Search or BFS for a Graph](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/)
+[2] [labuladong的算法小抄](https://item.jd.com/12759911.html)
+[3] [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search)
