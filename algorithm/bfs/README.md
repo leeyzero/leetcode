@@ -61,4 +61,4 @@ func BFS(start *Node, target *Node) {
 
 [2] [labuladong的算法小抄](https://item.jd.com/12759911.html)
 
-l[3] [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search)
+[3] [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search)
