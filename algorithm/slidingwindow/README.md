@@ -42,10 +42,13 @@ func slidingWindow(s string, t string) {
 ```
 
 ## 经典问题
-[1] [76.最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/)
-[2] [剑指 Offer 59 - I. 滑动窗口的最大值](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/)
-[3] [题目：567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string/)
+l[76.最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/)
+
+[剑指 Offer 59 - I. 滑动窗口的最大值](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/)
+
+[题目：567. 字符串的排列](https://leetcode.cn/problems/permutation-in-string/)
 
 ## 参考资料
 [1] [Window Sliding Technique](https://www.geeksforgeeks.org/window-sliding-technique/)
+
 [2] [labuladong的算法小抄](https://item.jd.com/12759911.html)
