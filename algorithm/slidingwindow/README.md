@@ -42,7 +42,7 @@ func slidingWindow(s string, t string) {
 ```
 
 ## 经典问题
-l[76.最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/)
+[76.最小覆盖子串](https://leetcode-cn.com/problems/minimum-window-substring/)
 
 [剑指 Offer 59 - I. 滑动窗口的最大值](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/)
 

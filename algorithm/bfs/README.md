@@ -58,5 +58,7 @@ func BFS(start *Node, target *Node) {
 
 ## 参考资料
 [1] [Breadth First Search or BFS for a Graph](https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/)
+
 [2] [labuladong的算法小抄](https://item.jd.com/12759911.html)
-[3] [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search)
+
+l[3] [Breadth-first search](https://en.wikipedia.org/wiki/Breadth-first_search)
