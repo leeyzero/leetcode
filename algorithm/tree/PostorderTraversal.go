@@ -1,6 +1,8 @@
 package tree
 
-import "github.com/leeyzero/leetcode/algorithm/base"
+import (
+	"github.com/leeyzero/leetcode/algorithm/base"
+)
 
 // 二叉树的后续遍历
 func postorderTraversal(root *base.TreeNode) []int {
